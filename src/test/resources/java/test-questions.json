@@ -1,0 +1,19 @@
+{
+  "collection": [
+    {
+      "id": 1,
+      "category": "basics",
+      "keywords": [],
+      "questionText": "testQuestion",
+      "questionImageUrl": null,
+      "responses": [
+        "Nope",
+        "Not this one either",
+        "2",
+        "You've gone too far, go back to 3"
+      ],
+      "answerIndex": 3,
+      "answerExplanation": "An explanation"
+    }
+  ]
+}
