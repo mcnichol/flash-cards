@@ -1,3 +1,5 @@
+package com.mcnichol.training.java;
+
 import com.google.gson.Gson;
 import org.junit.Test;
 

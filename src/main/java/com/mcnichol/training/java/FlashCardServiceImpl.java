@@ -1,3 +1,4 @@
+package com.mcnichol.training.java;
 
 class FlashCardServiceImpl implements FlashCardService {
 
@@ -9,7 +10,6 @@ class FlashCardServiceImpl implements FlashCardService {
 
     @Override
     public Question nextQuestion() {
-        System.out.println("Something");
         return cardDeck.getCard();
     }
 }

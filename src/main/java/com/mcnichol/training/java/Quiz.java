@@ -1,3 +1,5 @@
+package com.mcnichol.training.java;
+
 import lombok.Value;
 
 import java.util.List;
