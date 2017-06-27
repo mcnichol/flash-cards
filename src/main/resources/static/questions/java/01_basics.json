@@ -1,0 +1,19 @@
+{
+  "collection": [
+    {
+      "id": 1,
+      "category": "basics",
+      "keywords": [],
+      "questionText": "Which of the following method signatures is a valid declaration of an entry point in a Java application?",
+      "questionImageUrl": null,
+      "responses": [
+        "public void main(String[] args)",
+        "public static void main()",
+        "private static void start(String[] mydata)",
+        "public static final void main(String[] mydata)"
+      ],
+      "answerIndex": 4,
+      "answerExplanation": "An entry point in a Java application consists of a main() method with a single String[] argument, return type of void, and modifiers public and static. The name of the variable in the input argument does not matter. Option A is missing the static modifier, Option B is missing the String[] argument, and Option C has the wrong access modifier and method name. Only Option D fulfills these requirements. Note that the modifier final is optional and may be added to an entry point method."
+    }
+  ]
+}
