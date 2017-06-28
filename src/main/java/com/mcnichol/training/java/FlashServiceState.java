@@ -1,5 +1,5 @@
 package com.mcnichol.training.java;
 
-public enum FLASH_SERVICE_STATE {
-    QUESTION, LOAD
+public enum FlashServiceState {
+    NEXT_QUESTION, MAKE_GUESS, LOAD
 }

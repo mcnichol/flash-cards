@@ -2,14 +2,46 @@ package com.mcnichol.training.java;
 
 class FlashCardServiceImpl implements FlashCardService {
 
-    private CardDeck cardDeck;
+    private FlashServiceState state;
+    private int currentQuizQuestionIndex = -1;
+    private Quiz quiz;
 
-    public FlashCardServiceImpl(CardDeck cardDeck) {
-        this.cardDeck = cardDeck;
+    public FlashCardServiceImpl() {
+        updateState(FlashServiceState.LOAD);
+    }
+
+    public FlashCardServiceImpl(Quiz quiz) {
+        this();
+        this.quiz = quiz;
+        updateState(FlashServiceState.NEXT_QUESTION);
     }
 
     @Override
     public Question nextQuestion() {
-        return cardDeck.getCard();
+        Question question = quiz.getCollection().get(++currentQuizQuestionIndex);
+
+        updateState(FlashServiceState.MAKE_GUESS);
+
+        return question;
+    }
+
+    @Override
+    public String getQuestion() {
+        return quiz.getCollection().get(currentQuizQuestionIndex).getQuestionText();
+    }
+
+    @Override
+    public String getAnswer() {
+        return quiz.getCollection().get(currentQuizQuestionIndex).getResponses().get(quiz.getCollection().get(currentQuizQuestionIndex).getAnswerIndex());
+    }
+
+
+    @Override
+    public FlashServiceState getState() {
+        return state;
+    }
+
+    private void updateState(FlashServiceState updatedState) {
+        state = updatedState;
     }
 }
