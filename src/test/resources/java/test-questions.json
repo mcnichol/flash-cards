@@ -4,7 +4,7 @@
       "id": 1,
       "category": "basics",
       "keywords": [],
-      "questionText": "testQuestion",
+      "questionText": "test-question-1",
       "questionHasCode": false,
       "questionImageUrl": null,
       "responses": [
@@ -13,7 +13,23 @@
         "2",
         "You've gone too far, go back to 3"
       ],
-      "answerIndex": 3,
+      "answerIndex": 2,
+      "answerExplanation": "An explanation"
+    },
+    {
+      "id": 1,
+      "category": "basics",
+      "keywords": [],
+      "questionText": "test-question-2",
+      "questionHasCode": false,
+      "questionImageUrl": null,
+      "responses": [
+        "Nope",
+        "Not this one either",
+        "2",
+        "You've gone too far, go back to 3"
+      ],
+      "answerIndex": 2,
       "answerExplanation": "An explanation"
     }
   ]

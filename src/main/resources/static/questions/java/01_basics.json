@@ -13,7 +13,7 @@
         "private static void start(String[] mydata)",
         "public static final void main(String[] mydata)"
       ],
-      "answerIndex": 4,
+      "answerIndex": 3,
       "answerExplanation": "An entry point in a Java application consists of a main() method with a single String[] argument, return type of void, and modifiers public and static. The name of the variable in the input argument does not matter. Option A is missing the static modifier, Option B is missing the String[] argument, and Option C has the wrong access modifier and method name. Only Option D fulfills these requirements. Note that the modifier final is optional and may be added to an entry point method."
     },
     {
@@ -29,7 +29,7 @@
         "The Gold and Silver classes inherit weight and color attributes from the Metal class.",
         "Gold does not inherit the luster attribute."
       ],
-      "answerIndex": 1,
+      "answerIndex": 0,
       "answerExplanation": "The diagram is an example of object-oriented design in Java, making Option B a true statement. Options C and D are also true, as they follow from the inheritance model in the diagram. Option A is the correct answer, since platform independence has nothing to do with the diagram."
     },
     {
@@ -45,7 +45,7 @@
         ".class",
         ".dll"
       ],
-      "answerIndex": 3,
+      "answerIndex": 2,
       "answerExplanation": "The proper extension for a Java compiled bytecode file is .class, making Option C the correct answer."
     },
     {
@@ -61,8 +61,8 @@
         "The code does not compile because of line 5.",
         "The code compiles without issue."
       ],
-      "answerIndex": 2,
+      "answerIndex": 1,
       "answerExplanation": "The fact that the Date class exists in both packages does not impact the ability to import both packages, so lines 1 and 2 compile without issue, and Option A is incorrect. Line 4 will not compile because the Date class used is ambiguous, making Option B correct and Option D incorrect. Finally, Option C is incorrect because line 5 does compile, as the fully qualified name of the class is used."
     }
   ]
-}
+} 
