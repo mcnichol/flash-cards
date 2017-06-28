@@ -11,7 +11,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class FlashCardServiceTest {
-
     private FlashCardService flashCardService;
 
     @Before
@@ -21,29 +20,44 @@ public class FlashCardServiceTest {
     }
 
     @Test
-    public void startsInALoadingState() throws Exception {
+    public void initializingService_stateIs_LOAD() throws Exception {
         FlashCardService emptyFlashCardService = new FlashCardServiceImpl();
 
         assertThat(emptyFlashCardService.getState(), equalTo(FlashServiceState.LOAD));
     }
 
     @Test
-    public void afterLoadingQuizInQuestionState() throws Exception {
+    public void afterLoadingQuiz_stateIs_NEXT_QUESTION() throws Exception {
 
         assertThat(flashCardService.getState(), equalTo(FlashServiceState.NEXT_QUESTION));
     }
 
     @Test
-    public void repliesWithQuestionFromQuiz() throws Exception {
+    public void retrieveQuestion_stateIs_MAKE_GUESS() throws Exception {
 
         flashCardService.nextQuestion();
 
-        assertThat(flashCardService.getQuestion(), equalTo("test-question-1"));
         assertThat(flashCardService.getState(), equalTo(FlashServiceState.MAKE_GUESS));
     }
 
     @Test
-    public void canAdvanceToNextQuestionManually() throws Exception {
+    public void retrievesCurrentQuestion() throws Exception {
+
+        flashCardService.nextQuestion();
+
+        assertThat(flashCardService.getQuestion(), equalTo("test-question-1"));
+    }
+
+    @Test
+    public void retrievesPossibleAnswersToCurrentQuestion() throws Exception {
+
+        Question question = flashCardService.nextQuestion();
+
+        assertThat(flashCardService.getResponses(), equalTo(question.getResponses()));
+    }
+
+    @Test
+    public void manuallyAdvanceToNextQuestion() throws Exception {
 
         flashCardService.nextQuestion();
         flashCardService.nextQuestion();
@@ -52,7 +66,8 @@ public class FlashCardServiceTest {
     }
 
     @Test
-    public void canRequestTheAnswer() throws Exception {
+    public void retrievesAnswer() throws Exception {
+        assertThat(flashCardService.getState(), equalTo(FlashServiceState.NEXT_QUESTION));
         Question actualQuestion = flashCardService.nextQuestion();
 
         assertThat(flashCardService.getAnswer(), equalTo(actualQuestion.getResponses().get(actualQuestion.getAnswerIndex())));

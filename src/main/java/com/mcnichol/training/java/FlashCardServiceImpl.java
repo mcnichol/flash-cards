@@ -1,5 +1,7 @@
 package com.mcnichol.training.java;
 
+import java.util.List;
+
 class FlashCardServiceImpl implements FlashCardService {
 
     private FlashServiceState state;
@@ -35,6 +37,10 @@ class FlashCardServiceImpl implements FlashCardService {
         return quiz.getCollection().get(currentQuizQuestionIndex).getResponses().get(quiz.getCollection().get(currentQuizQuestionIndex).getAnswerIndex());
     }
 
+    @Override
+    public List<String> getResponses() {
+        return quiz.getCollection().get(currentQuizQuestionIndex).getResponses();
+    }
 
     @Override
     public FlashServiceState getState() {

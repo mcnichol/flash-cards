@@ -1,5 +1,7 @@
 package com.mcnichol.training.java;
 
+import java.util.List;
+
 public interface FlashCardService {
     Question nextQuestion();
 
@@ -8,4 +10,6 @@ public interface FlashCardService {
     String getQuestion();
 
     String getAnswer();
+
+    List<String> getResponses();
 }
