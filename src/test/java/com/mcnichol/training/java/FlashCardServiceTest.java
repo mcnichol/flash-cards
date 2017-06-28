@@ -35,5 +35,15 @@ public class FlashCardServiceTest {
 
             return quiz != null ? quiz.getCollection().get(0) : null;
         }
+
+        @Override
+        public boolean hasCards() {
+            return false;
+        }
+
+        @Override
+        public void loadQuiz(Quiz quiz) {
+
+        }
     }
 }

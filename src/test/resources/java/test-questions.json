@@ -5,6 +5,7 @@
       "category": "basics",
       "keywords": [],
       "questionText": "testQuestion",
+      "questionHasCode": false,
       "questionImageUrl": null,
       "responses": [
         "Nope",

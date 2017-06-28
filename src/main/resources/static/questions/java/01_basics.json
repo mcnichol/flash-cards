@@ -5,6 +5,7 @@
       "category": "basics",
       "keywords": [],
       "questionText": "Which of the following method signatures is a valid declaration of an entry point in a Java application?",
+      "questionHasCode": false,
       "questionImageUrl": null,
       "responses": [
         "public void main(String[] args)",
@@ -14,6 +15,54 @@
       ],
       "answerIndex": 4,
       "answerExplanation": "An entry point in a Java application consists of a main() method with a single String[] argument, return type of void, and modifiers public and static. The name of the variable in the input argument does not matter. Option A is missing the static modifier, Option B is missing the String[] argument, and Option C has the wrong access modifier and method name. Only Option D fulfills these requirements. Note that the modifier final is optional and may be added to an entry point method."
+    },
+    {
+      "id": 2,
+      "category": "basics",
+      "keywords": [],
+      "questionText": "The following class diagram demonstrates the relationship between Gold and Silver, which extend the Metal class. Assume the attributes are all declared public. Which statement about the diagram is not true?",
+      "questionHasCode": false,
+      "questionImageUrl": "01_basics_q02.jpg",
+      "responses": [
+        "The diagram demonstrates platform independence in Java.",
+        "The diagram demonstrates object-oriented design in Java.",
+        "The Gold and Silver classes inherit weight and color attributes from the Metal class.",
+        "Gold does not inherit the luster attribute."
+      ],
+      "answerIndex": 1,
+      "answerExplanation": "The diagram is an example of object-oriented design in Java, making Option B a true statement. Options C and D are also true, as they follow from the inheritance model in the diagram. Option A is the correct answer, since platform independence has nothing to do with the diagram."
+    },
+    {
+      "id": 3,
+      "category": "basics",
+      "keywords": [],
+      "questionText": "What is the proper filename extension for a Java bytecode compiled file?",
+      "questionHasCode": false,
+      "questionImageUrl": null,
+      "responses": [
+        ".java",
+        ".bytecode",
+        ".class",
+        ".dll"
+      ],
+      "answerIndex": 3,
+      "answerExplanation": "The proper extension for a Java compiled bytecode file is .class, making Option C the correct answer."
+    },
+    {
+      "id": 4,
+      "category": "basics",
+      "keywords": [],
+      "questionText": "Given that a Date class exists in both the java.util and java.sql packages, what is the result of compiling the following class?\n1: import java.util.*;\n2: import java.sql.*;\n3: public class BirthdayManager {\n4:    private Date rob = new Date();\n5:    private java.util.Date sharon = new java.util.Date();\n6: }",
+      "questionHasCode": true,
+      "questionImageUrl": null,
+      "responses": [
+        "The code does not compile because of lines 1 and 2.",
+        "The code does not compile because of line 4.",
+        "The code does not compile because of line 5.",
+        "The code compiles without issue."
+      ],
+      "answerIndex": 2,
+      "answerExplanation": "The fact that the Date class exists in both packages does not impact the ability to import both packages, so lines 1 and 2 compile without issue, and Option A is incorrect. Line 4 will not compile because the Date class used is ambiguous, making Option B correct and Option D incorrect. Finally, Option C is incorrect because line 5 does compile, as the fully qualified name of the class is used."
     }
   ]
 }

@@ -13,6 +13,7 @@ public class Question {
     List<String> keywords;
 
     String questionText;
+    boolean questionHasCode;
     String questionImageUrl;
 
     List<String> responses;
