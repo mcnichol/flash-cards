@@ -1,7 +1,10 @@
 package com.mcnichol.training.java;
 
-/**
- * Created by mmcnichol on 6/28/17.
- */
+import lombok.Builder;
+import lombok.Value;
+
+@Value
+@Builder
 public class Response {
+    private boolean isCorrect;
 }
