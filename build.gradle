@@ -1,17 +1,59 @@
 group 'com.mcnichol.java.training'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
 
-sourceCompatibility = 1.8
+
+buildscript {
+    ext.junitPlatformVersion = "1.0.0-M5"
+    ext.junitJupiterVersion = "5.0.0-M5"
+    ext.junit5TestVersion = "1.0.0.M5"
+    ext.googleGsonVersion = "1.7.2"
+    ext.springBootVersion = "1.5.4.RELEASE"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.junit.platform:junit-platform-gradle-plugin:${junitPlatformVersion}")
+        classpath("com.kenshoo:gradle-fpm:0.5")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+compileTestJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    options.compilerArgs += "-parameters"
+}
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     compileOnly("org.projectlombok:lombok:1.16.16")
-    compile("com.fasterxml:jackson-xml-databind:0.6.2")
-    compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
-    testCompile("junit:junit:4.12")
+    compile ("com.google.code.gson:gson:1.7.2")
+    compile("org.springframework.boot:spring-boot-starter-hateoas")
+    testCompile ("org.springframework.boot:spring-boot-starter-test")
+
+    testCompile("com.github.sbrannen:spring-test-junit5:${junit5TestVersion}")
+    testCompile("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}")
+    testCompile("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+    testCompile("org.junit.vintage:junit-vintage-engine:4.12.0-M5")
+    testCompile("org.junit.platform:junit-platform-runner:${junitPlatformVersion}")
+}
+
+junitPlatform {
+    details 'tree'
 }
