@@ -12,4 +12,6 @@ public interface FlashCardService {
     String getAnswer();
 
     List<String> getResponses();
+
+    Response makeGuess(Integer guessIndex);
 }

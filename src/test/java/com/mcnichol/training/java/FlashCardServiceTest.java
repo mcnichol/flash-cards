@@ -9,6 +9,8 @@ import java.io.FileReader;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class FlashCardServiceTest {
     private FlashCardService flashCardService;
@@ -67,9 +69,36 @@ public class FlashCardServiceTest {
 
     @Test
     public void retrievesAnswer() throws Exception {
-        assertThat(flashCardService.getState(), equalTo(FlashServiceState.NEXT_QUESTION));
         Question actualQuestion = flashCardService.nextQuestion();
 
         assertThat(flashCardService.getAnswer(), equalTo(actualQuestion.getResponses().get(actualQuestion.getAnswerIndex())));
+    }
+
+    @Test
+    public void canGuessAnswerCorrectly() throws Exception {
+        Question actualQuestion = flashCardService.nextQuestion();
+
+        Response actualResponse = flashCardService.makeGuess(actualQuestion.getAnswerIndex());
+
+        assertTrue(actualResponse.isCorrect());
+    }
+
+    @Test
+    public void canGuessAnswerIncorrectly() throws Exception {
+        flashCardService.nextQuestion();
+
+        Response actualResponse = flashCardService.makeGuess(0);
+
+        assertFalse(actualResponse.isCorrect());
+    }
+
+    @Test
+    public void whenReachedEndOfQuizStateIs_COMPLETED() throws Exception {
+
+        flashCardService.nextQuestion();
+        flashCardService.nextQuestion();
+        flashCardService.nextQuestion();
+
+        assertThat(flashCardService.getState(), equalTo(FlashServiceState.FINISHED));
     }
 }
